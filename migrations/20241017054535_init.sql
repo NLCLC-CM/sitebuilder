@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(128) NOT NULL,
+    password VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS pages (
+    id SERIAL PRIMARY KEY,
+    owner_id INTEGER NOT NULL,
+    name VARCHAR(128) NOT NULL,
+    abs_path VARCHAR(256) NOT NULL,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS sessions (
+    id VARCHAR(64) NOT NULL,
+    user_id INTEGER NOT NULL,
+    expires_on TIMESTAMP NOT NULL,
+    PRIMARY KEY (id, user_id)
+);
