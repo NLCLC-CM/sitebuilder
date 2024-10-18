@@ -1,0 +1,4 @@
+ALTER TABLE pages
+ALTER COLUMN is_public SET NOT NULL,
+ALTER COLUMN creation_date SET NOT NULL,
+ALTER COLUMN last_update SET NOT NULL;
